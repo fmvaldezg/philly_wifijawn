@@ -9,6 +9,37 @@
 <style>
 body { margin: 0; padding: 0; }
 #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+#title-before, #title-after {
+    position: absolute;
+    background-color: white;
+    padding: 10px;
+    z-index: 1;
+    font-size: 18px;
+    font-weight: bold;
+    pointer-events: none;
+}
+#title-before {
+    top: 10px;
+    left: 10px;
+}
+#title-after {
+    top: 10px;
+    right: 10px;
+}
+#map-key-before, #map-key-after {
+    position: absolute;
+    bottom: 10px;
+    background-color: white;
+    padding: 10px;
+    z-index: 1;
+    font-size: 14px;
+}
+#map-key-before {
+    left: 10px;
+}
+#map-key-after {
+    right: 10px;
+}
 </style>
 </head>
 <body>
@@ -34,10 +65,30 @@ body { margin: 0; padding: 0; }
 </style>
 <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.4.0/mapbox-gl-compare.js"></script>
 <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.4.0/mapbox-gl-compare.css" type="text/css">
+
 <div id="comparison-container">
     <div id="before" class="map"></div>
     <div id="after" class="map"></div>
+    <div id="title-before">Map Title Before</div>
+    <div id="title-after">Map Title After</div>
+    <div id="map-key-before">
+        <strong>Map Key Before:</strong>
+        <ul>
+            <li>Color 1: Description A</li>
+            <li>Color 2: Description B</li>
+            <li>Color 3: Description C</li>
+        </ul>
+    </div>
+    <div id="map-key-after">
+        <strong>Map Key After:</strong>
+        <ul>
+            <li>Color 1: Description X</li>
+            <li>Color 2: Description Y</li>
+            <li>Color 3: Description Z</li>
+        </ul>
+    </div>
 </div>
+
 <script>
 	mapboxgl.accessToken = 'pk.eyJ1IjoiZm12YWxkZXpnODQiLCJhIjoiY2w5eWJzMzkwMDNiaDNvbGltamV1ajdvNiJ9.esyugI1HyBVPAQcRN551xw';
     const beforeMap = new mapboxgl.Map({
@@ -62,6 +113,7 @@ body { margin: 0; padding: 0; }
         // Set this to enable comparing two maps by mouse movement:
         // mousemove: true
     });
+    
 </script>
 
 </body>
